@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ForgetMeNot</string>
+    <string name="do_not_show_splash">Don\'t show splash</string>
+    <string name="forget_me_not_flower_picture">Forget-me-not flower picture</string>
+</resources>
