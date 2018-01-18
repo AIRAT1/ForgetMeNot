@@ -1,13 +1,15 @@
-package de.android.ayrathairullin.forgetmenot;
+package de.android.ayrathairullin.forgetmenot.fragments;
 
+import android.app.Fragment;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.concurrent.TimeUnit;
+
+import de.android.ayrathairullin.forgetmenot.R;
 
 public class SplashFragment extends Fragment {
 
@@ -35,7 +37,7 @@ public class SplashFragment extends Fragment {
                 e.printStackTrace();
             }
             if (getActivity() != null) {
-                getActivity().getSupportFragmentManager().popBackStack();
+                getActivity().getFragmentManager().popBackStack();
             }
             return null;
         }

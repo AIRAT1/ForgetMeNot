@@ -1,8 +1,10 @@
-package de.android.ayrathairullin.forgetmenot;
+package de.android.ayrathairullin.forgetmenot.utils;
 
 
 import android.content.Context;
 import android.content.SharedPreferences;
+
+import de.android.ayrathairullin.forgetmenot.R;
 
 public class PreferenceHelper {
     private static final String PREFERENCES_FILE_NAME = "preferences";
