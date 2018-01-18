@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         preferenceHelper = PreferenceHelper.getInstance();
         fragmentManager = getFragmentManager();
         runSplash();
+        setUI();
     }
 
     @Override
@@ -73,9 +74,26 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.addTab(tabLayout.newTab().setText(R.string.current_task));
         tabLayout.addTab(tabLayout.newTab().setText(R.string.done_task));
 
-        ViewPager viewPager = binding.pager;
+        final ViewPager viewPager = binding.pager;
         TabAdapter tabAdapter = new TabAdapter(fragmentManager, 2);
         viewPager.setAdapter(tabAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 }
