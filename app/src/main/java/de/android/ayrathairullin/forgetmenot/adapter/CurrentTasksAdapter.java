@@ -7,32 +7,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import de.android.ayrathairullin.forgetmenot.R;
+import de.android.ayrathairullin.forgetmenot.fragments.CurrentTaskFragment;
 import de.android.ayrathairullin.forgetmenot.model.Item;
 import de.android.ayrathairullin.forgetmenot.model.ModelTask;
 import de.android.ayrathairullin.forgetmenot.utils.Utils;
 
-public class CurrentTasksAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class CurrentTasksAdapter extends TaskAdapter {
     private static final int TYPE_TASK = 0;
     private static final int TYPE_SEPARATOR = 1;
 
-    List<Item> items = new ArrayList<>();
-
-    public Item getItem(int position) {
-        return items.get(position);
-    }
-
-    public void addItem(Item item) {
-        items.add(item);
-        notifyItemInserted(getItemCount() - 1);
-    }
-
-    public void addItem(int location, Item item) {
-        items.add(location, item);
-        notifyItemInserted(location);
+    public CurrentTasksAdapter(CurrentTaskFragment taskFragment) {
+        super(taskFragment);
     }
 
     @Override
@@ -65,27 +51,11 @@ public class CurrentTasksAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     @Override
-    public int getItemCount() {
-        return items.size();
-    }
-
-    @Override
     public int getItemViewType(int position) {
         if (getItem(position).isTask()) {
             return TYPE_TASK;
         } else {
             return TYPE_SEPARATOR;
-        }
-    }
-
-    private class TaskViewHolder extends RecyclerView.ViewHolder {
-        TextView title;
-        TextView date;
-
-        public TaskViewHolder(View itemView, TextView title, TextView date) {
-            super(itemView);
-            this.title = title;
-            this.date = date;
         }
     }
 }

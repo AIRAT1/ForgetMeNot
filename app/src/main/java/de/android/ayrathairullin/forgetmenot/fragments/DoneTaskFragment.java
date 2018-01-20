@@ -1,20 +1,15 @@
 package de.android.ayrathairullin.forgetmenot.fragments;
 
 
-import android.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import de.android.ayrathairullin.forgetmenot.R;
 
-public class DoneTaskFragment extends Fragment {
-    private RecyclerView rvDoneTasks;
-    private RecyclerView.LayoutManager layoutManager;
-
+public class DoneTaskFragment extends TaskFragment {
 
     public DoneTaskFragment() {
         // Required empty public constructor
@@ -25,9 +20,9 @@ public class DoneTaskFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_done_task, container, false);
-        rvDoneTasks = rootView.findViewById(R.id.rvDoneTasks);
+        recyclerView = rootView.findViewById(R.id.rvDoneTasks);
         layoutManager = new LinearLayoutManager(getActivity());
-        rvDoneTasks.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(layoutManager);
         return rootView;
     }
 
