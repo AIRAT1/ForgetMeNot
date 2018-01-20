@@ -4,13 +4,13 @@ package de.android.ayrathairullin.forgetmenot.fragments;
 import android.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 
-import de.android.ayrathairullin.forgetmenot.adapter.CurrentTasksAdapter;
+import de.android.ayrathairullin.forgetmenot.adapter.TaskAdapter;
 import de.android.ayrathairullin.forgetmenot.model.ModelTask;
 
 public abstract class TaskFragment extends Fragment{
     protected RecyclerView recyclerView;
     protected RecyclerView.LayoutManager layoutManager;
-    protected CurrentTasksAdapter adapter;
+    protected TaskAdapter adapter;
 
     public void addTask(ModelTask newTask) {
         int position = -1;
@@ -29,4 +29,6 @@ public abstract class TaskFragment extends Fragment{
             adapter.addItem(newTask);
         }
     }
+
+    public abstract void moveTask(ModelTask task);
 }

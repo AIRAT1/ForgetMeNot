@@ -1,6 +1,7 @@
 package de.android.ayrathairullin.forgetmenot.fragments;
 
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 
 import de.android.ayrathairullin.forgetmenot.R;
 import de.android.ayrathairullin.forgetmenot.adapter.CurrentTasksAdapter;
+import de.android.ayrathairullin.forgetmenot.model.ModelTask;
 
 public class CurrentTaskFragment extends TaskFragment {
 
@@ -16,6 +18,21 @@ public class CurrentTaskFragment extends TaskFragment {
         // Required empty public constructor
     }
 
+    OnTaskDoneListener onTaskDoneListener;
+
+    public interface OnTaskDoneListener {
+        void onTaskDone(ModelTask task);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            onTaskDoneListener = (OnTaskDoneListener) activity;
+        }catch (ClassCastException e) {
+            throw new ClassCastException(activity.toString() + " must implement OnTAskDoneListener");
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,5 +44,10 @@ public class CurrentTaskFragment extends TaskFragment {
         adapter = new CurrentTasksAdapter(this);
         recyclerView.setAdapter(adapter);
         return rootView;
+    }
+
+    @Override
+    public void moveTask(ModelTask task) {
+        onTaskDoneListener.onTaskDone(task);
     }
 }

@@ -2,14 +2,15 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
+             android:background="@color/gray_50"
              tools:context="de.android.ayrathairullin.forgetmenot.fragments.CurrentTaskFragment">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rvCurrentTasks"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical"
         android:clipToPadding="false"
-        android:paddingBottom="88dp"/>
+        android:paddingBottom="88dp"
+        android:scrollbars="vertical"/>
 
 </FrameLayout>

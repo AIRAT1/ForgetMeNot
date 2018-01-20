@@ -21,16 +21,18 @@ import de.android.ayrathairullin.forgetmenot.dialog.AddingTaskDialogFragment;
 import de.android.ayrathairullin.forgetmenot.fragments.CurrentTaskFragment;
 import de.android.ayrathairullin.forgetmenot.fragments.DoneTaskFragment;
 import de.android.ayrathairullin.forgetmenot.fragments.SplashFragment;
+import de.android.ayrathairullin.forgetmenot.fragments.TaskFragment;
 import de.android.ayrathairullin.forgetmenot.model.ModelTask;
 import de.android.ayrathairullin.forgetmenot.utils.PreferenceHelper;
 
-public class MainActivity extends AppCompatActivity implements AddingTaskDialogFragment.AddingTaskListener{
+public class MainActivity extends AppCompatActivity implements AddingTaskDialogFragment.AddingTaskListener,
+        CurrentTaskFragment.OnTaskDoneListener, DoneTaskFragment.OnTaskRestoreListener{
     private ActivityMainBinding binding;
     private FragmentManager fragmentManager;
     private PreferenceHelper preferenceHelper;
     private TabAdapter tabAdapter;
-    private CurrentTaskFragment currentTaskFragment;
-    private DoneTaskFragment doneTaskFragment;
+    private TaskFragment currentTaskFragment;
+    private TaskFragment doneTaskFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,5 +130,15 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
     @Override
     public void onTaskAddingCancel() {
         Toast.makeText(this, "Task adding cancel", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onTaskDone(ModelTask task) {
+        doneTaskFragment.addTask(task);
+    }
+
+    @Override
+    public void onTaskRestore(ModelTask task) {
+        currentTaskFragment.addTask(task);
     }
 }

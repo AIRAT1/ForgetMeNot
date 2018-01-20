@@ -10,6 +10,7 @@ import java.util.List;
 
 import de.android.ayrathairullin.forgetmenot.fragments.TaskFragment;
 import de.android.ayrathairullin.forgetmenot.model.Item;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public abstract class TaskAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
     List<Item> items;
@@ -49,11 +50,13 @@ public abstract class TaskAdapter extends RecyclerView.Adapter<RecyclerView.View
     protected class TaskViewHolder extends RecyclerView.ViewHolder {
         protected TextView title;
         protected TextView date;
+        protected CircleImageView priority;
 
-        public TaskViewHolder(View itemView, TextView title, TextView date) {
+        public TaskViewHolder(View itemView, TextView title, TextView date, CircleImageView priority) {
             super(itemView);
             this.title = title;
             this.date = date;
+            this.priority = priority;
         }
     }
 
