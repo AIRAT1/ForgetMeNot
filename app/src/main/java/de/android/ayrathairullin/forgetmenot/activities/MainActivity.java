@@ -19,6 +19,7 @@ import de.android.ayrathairullin.forgetmenot.adapter.TabAdapter;
 import de.android.ayrathairullin.forgetmenot.databinding.ActivityMainBinding;
 import de.android.ayrathairullin.forgetmenot.dialog.AddingTaskDialogFragment;
 import de.android.ayrathairullin.forgetmenot.fragments.SplashFragment;
+import de.android.ayrathairullin.forgetmenot.model.ModelTask;
 import de.android.ayrathairullin.forgetmenot.utils.PreferenceHelper;
 
 public class MainActivity extends AppCompatActivity implements AddingTaskDialogFragment.AddingTaskListener{
@@ -111,7 +112,7 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
     }
 
     @Override
-    public void onTaskAdded() {
+    public void onTaskAdded(ModelTask newTask) {
         Toast.makeText(this, "Task added", Toast.LENGTH_SHORT).show();
     }
 
