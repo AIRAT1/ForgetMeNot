@@ -18,6 +18,8 @@ import de.android.ayrathairullin.forgetmenot.R;
 import de.android.ayrathairullin.forgetmenot.adapter.TabAdapter;
 import de.android.ayrathairullin.forgetmenot.databinding.ActivityMainBinding;
 import de.android.ayrathairullin.forgetmenot.dialog.AddingTaskDialogFragment;
+import de.android.ayrathairullin.forgetmenot.fragments.CurrentTaskFragment;
+import de.android.ayrathairullin.forgetmenot.fragments.DoneTaskFragment;
 import de.android.ayrathairullin.forgetmenot.fragments.SplashFragment;
 import de.android.ayrathairullin.forgetmenot.model.ModelTask;
 import de.android.ayrathairullin.forgetmenot.utils.PreferenceHelper;
@@ -26,6 +28,9 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
     private ActivityMainBinding binding;
     private FragmentManager fragmentManager;
     private PreferenceHelper preferenceHelper;
+    private TabAdapter tabAdapter;
+    private CurrentTaskFragment currentTaskFragment;
+    private DoneTaskFragment doneTaskFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
         tabLayout.addTab(tabLayout.newTab().setText(R.string.done_task));
 
         final ViewPager viewPager = binding.pager;
-        TabAdapter tabAdapter = new TabAdapter(fragmentManager, 2);
+        tabAdapter = new TabAdapter(fragmentManager, 2);
         viewPager.setAdapter(tabAdapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
@@ -101,6 +106,10 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
 
             }
         });
+
+        currentTaskFragment = (CurrentTaskFragment)tabAdapter.getItem(TabAdapter.CURRENT_TASK_FRAGMENT_POSITION);
+        doneTaskFragment = (DoneTaskFragment)tabAdapter.getItem(TabAdapter.DONE_TASK_FRAGMENT_POSITION);
+
         FloatingActionButton fab = binding.fab;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -113,7 +122,7 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
 
     @Override
     public void onTaskAdded(ModelTask newTask) {
-        Toast.makeText(this, "Task added", Toast.LENGTH_SHORT).show();
+        currentTaskFragment.addTask(newTask);
     }
 
     @Override

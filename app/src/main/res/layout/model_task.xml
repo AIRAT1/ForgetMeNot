@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:background="?android:attr/selectableItemBackground"
@@ -14,9 +15,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_toStartOf="@+id/tvTaskDate"
-        android:text="Title"
         android:textColor="@color/primary_text_default_material_light"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        tools:ignore="PrivateResource"/>
 
     <TextView
         android:id="@+id/tvTaskDate"
@@ -25,8 +26,8 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
         android:gravity="end"
-        android:text="Date"
         android:textColor="@color/secondary_text_default_material_light"
-        android:textSize="14sp"/>
+        android:textSize="14sp"
+        tools:ignore="PrivateResource"/>
 
 </RelativeLayout>
