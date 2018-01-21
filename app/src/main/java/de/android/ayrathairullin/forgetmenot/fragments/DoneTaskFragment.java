@@ -8,8 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import de.android.ayrathairullin.forgetmenot.R;
 import de.android.ayrathairullin.forgetmenot.adapter.DoneTasksAdapter;
+import de.android.ayrathairullin.forgetmenot.database.DBHelper;
 import de.android.ayrathairullin.forgetmenot.model.ModelTask;
 
 public class DoneTaskFragment extends TaskFragment {
@@ -44,6 +48,17 @@ public class DoneTaskFragment extends TaskFragment {
         adapter = new DoneTasksAdapter(this);
         recyclerView.setAdapter(adapter);
         return rootView;
+    }
+
+    @Override
+    public void addTaskFromDB() {
+        List<ModelTask> tasks = new ArrayList<>();
+        tasks.addAll(activity.dbHelper.query().getTasks(DBHelper.SELECTION_STATUS,
+                new String[]{Integer.toString(ModelTask.STATUS_DONE)},
+                DBHelper.TASK_DATE_COLUMN));
+        for (int i = 0; i < tasks.size(); i++) {
+            addTask(tasks.get(i), false);
+        }
     }
 
     @Override

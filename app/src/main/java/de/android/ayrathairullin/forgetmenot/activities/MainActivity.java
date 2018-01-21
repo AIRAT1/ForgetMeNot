@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import de.android.ayrathairullin.forgetmenot.R;
 import de.android.ayrathairullin.forgetmenot.adapter.TabAdapter;
+import de.android.ayrathairullin.forgetmenot.database.DBHelper;
 import de.android.ayrathairullin.forgetmenot.databinding.ActivityMainBinding;
 import de.android.ayrathairullin.forgetmenot.dialog.AddingTaskDialogFragment;
 import de.android.ayrathairullin.forgetmenot.fragments.CurrentTaskFragment;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
     private TabAdapter tabAdapter;
     private TaskFragment currentTaskFragment;
     private TaskFragment doneTaskFragment;
+    public DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         PreferenceHelper.getInstance().init(getApplicationContext());
+        dbHelper = new DBHelper(getApplicationContext());
         preferenceHelper = PreferenceHelper.getInstance();
         fragmentManager = getFragmentManager();
         runSplash();
@@ -124,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
 
     @Override
     public void onTaskAdded(ModelTask newTask) {
-        currentTaskFragment.addTask(newTask);
+        currentTaskFragment.addTask(newTask, true);
     }
 
     @Override
@@ -134,11 +137,11 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
 
     @Override
     public void onTaskDone(ModelTask task) {
-        doneTaskFragment.addTask(task);
+        doneTaskFragment.addTask(task, false);
     }
 
     @Override
     public void onTaskRestore(ModelTask task) {
-        currentTaskFragment.addTask(task);
+        currentTaskFragment.addTask(task, false);
     }
 }
