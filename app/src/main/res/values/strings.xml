@@ -2,13 +2,18 @@
     <string name="app_name">ForgetMeNot</string>
     <string name="do_not_show_splash">Don\'t show splash</string>
     <string name="forget_me_not_flower_picture">Forget-me-not flower picture</string>
+
     <string name="current_task">Current</string>
     <string name="done_task">Done</string>
-    <string name="dialog_title">Adding task</string>
+
     <string name="task_title">Title</string>
     <string name="task_date">Date</string>
     <string name="task_time">Time</string>
+
+    <string name="dialog_title">Adding task</string>
     <string name="dialog_ok">OK</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_error_empty_title">Please, enter the title.</string>
+    <string name="dialog_removing_message">Are you sure want to delete this task?</string>
+    <string name="removed">Removed</string>
 </resources>
