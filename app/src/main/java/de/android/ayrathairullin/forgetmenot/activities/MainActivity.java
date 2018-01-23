@@ -15,8 +15,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import de.android.ayrathairullin.forgetmenot.MyApplication;
 import de.android.ayrathairullin.forgetmenot.R;
 import de.android.ayrathairullin.forgetmenot.adapter.TabAdapter;
+import de.android.ayrathairullin.forgetmenot.alarm.AlarmHelper;
 import de.android.ayrathairullin.forgetmenot.database.DBHelper;
 import de.android.ayrathairullin.forgetmenot.databinding.ActivityMainBinding;
 import de.android.ayrathairullin.forgetmenot.dialog.AddingTaskDialogFragment;
@@ -44,11 +46,25 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         PreferenceHelper.getInstance().init(getApplicationContext());
+
+        AlarmHelper.getInstance().init(getApplicationContext());
         dbHelper = new DBHelper(getApplicationContext());
         preferenceHelper = PreferenceHelper.getInstance();
         fragmentManager = getFragmentManager();
         runSplash();
         setUI();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MyApplication.activityResumed();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MyApplication.activityPaused();
     }
 
     @Override

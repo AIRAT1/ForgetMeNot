@@ -13,6 +13,7 @@ import android.view.View;
 import de.android.ayrathairullin.forgetmenot.R;
 import de.android.ayrathairullin.forgetmenot.activities.MainActivity;
 import de.android.ayrathairullin.forgetmenot.adapter.TaskAdapter;
+import de.android.ayrathairullin.forgetmenot.alarm.AlarmHelper;
 import de.android.ayrathairullin.forgetmenot.model.Item;
 import de.android.ayrathairullin.forgetmenot.model.ModelTask;
 
@@ -21,6 +22,7 @@ public abstract class TaskFragment extends Fragment{
     protected RecyclerView.LayoutManager layoutManager;
     protected TaskAdapter adapter;
     public MainActivity activity;
+    public AlarmHelper alarmHelper;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public abstract class TaskFragment extends Fragment{
         if (getActivity() != null) {
             activity = (MainActivity) getActivity();
         }
+        alarmHelper = AlarmHelper.getInstance();
         addTaskFromDB();
     }
 
@@ -85,6 +88,7 @@ public abstract class TaskFragment extends Fragment{
                         @Override
                         public void onViewDetachedFromWindow(View v) {
                             if (isRemoved[0]) {
+                                alarmHelper.removeAlarm(timeStamp);
                                 activity.dbHelper.removeTask(timeStamp);
                             }
                         }
