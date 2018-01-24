@@ -1,5 +1,6 @@
 package de.android.ayrathairullin.forgetmenot.activities;
 
+import android.annotation.SuppressLint;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.databinding.DataBindingUtil;
@@ -15,19 +16,20 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import de.android.ayrathairullin.forgetmenot.dialog.EditTaskDialogFragment;
-import de.android.ayrathairullin.forgetmenot.utils.MyApplication;
 import de.android.ayrathairullin.forgetmenot.R;
 import de.android.ayrathairullin.forgetmenot.adapter.TabAdapter;
+import de.android.ayrathairullin.forgetmenot.ads.Ads;
 import de.android.ayrathairullin.forgetmenot.alarm.AlarmHelper;
 import de.android.ayrathairullin.forgetmenot.database.DBHelper;
 import de.android.ayrathairullin.forgetmenot.databinding.ActivityMainBinding;
 import de.android.ayrathairullin.forgetmenot.dialog.AddingTaskDialogFragment;
+import de.android.ayrathairullin.forgetmenot.dialog.EditTaskDialogFragment;
 import de.android.ayrathairullin.forgetmenot.fragments.CurrentTaskFragment;
 import de.android.ayrathairullin.forgetmenot.fragments.DoneTaskFragment;
 import de.android.ayrathairullin.forgetmenot.fragments.SplashFragment;
 import de.android.ayrathairullin.forgetmenot.fragments.TaskFragment;
 import de.android.ayrathairullin.forgetmenot.model.ModelTask;
+import de.android.ayrathairullin.forgetmenot.utils.MyApplication;
 import de.android.ayrathairullin.forgetmenot.utils.PreferenceHelper;
 
 public class MainActivity extends AppCompatActivity implements AddingTaskDialogFragment.AddingTaskListener,
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
         super.onCreate(savedInstanceState);
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        Ads.showBanner(this);
         PreferenceHelper.getInstance().init(getApplicationContext());
 
         AlarmHelper.getInstance().init(getApplicationContext());
@@ -55,6 +58,12 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
         fragmentManager = getFragmentManager();
         runSplash();
         setUI();
+    }
+
+    @SuppressLint("MissingSuperCall")
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
     }
 
     @Override

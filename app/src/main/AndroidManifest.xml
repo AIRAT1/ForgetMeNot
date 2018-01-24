@@ -3,6 +3,8 @@
           package="de.android.ayrathairullin.forgetmenot">
     <uses-permission android:name="android.permission.VIBRATE"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -11,6 +13,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <meta-data android:name="com.google.android.gms.version"
+                   android:value="@integer/google_play_services_version"/>
+
         <activity android:name=".activities.MainActivity"
             android:screenOrientation="sensorPortrait">
             <intent-filter>
@@ -18,6 +24,10 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <activity android:name="com.google.android.gms.ads.AdActivity"
+                  android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+                  android:theme="@android:style/Theme.Translucent"/>
 
         <receiver android:name=".alarm.AlarmReceiver"
             android:process=":remote"/>
