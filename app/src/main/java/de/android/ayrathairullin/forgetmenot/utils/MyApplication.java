@@ -1,4 +1,4 @@
-package de.android.ayrathairullin.forgetmenot;
+package de.android.ayrathairullin.forgetmenot.utils;
 
 
 import android.app.Application;

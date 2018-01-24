@@ -9,7 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 
-import de.android.ayrathairullin.forgetmenot.MyApplication;
+import de.android.ayrathairullin.forgetmenot.utils.MyApplication;
 import de.android.ayrathairullin.forgetmenot.R;
 import de.android.ayrathairullin.forgetmenot.activities.MainActivity;
 

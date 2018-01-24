@@ -15,7 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import de.android.ayrathairullin.forgetmenot.MyApplication;
+import de.android.ayrathairullin.forgetmenot.utils.MyApplication;
 import de.android.ayrathairullin.forgetmenot.R;
 import de.android.ayrathairullin.forgetmenot.adapter.TabAdapter;
 import de.android.ayrathairullin.forgetmenot.alarm.AlarmHelper;
