@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import de.android.ayrathairullin.forgetmenot.dialog.EditTaskDialogFragment;
 import de.android.ayrathairullin.forgetmenot.utils.MyApplication;
 import de.android.ayrathairullin.forgetmenot.R;
 import de.android.ayrathairullin.forgetmenot.adapter.TabAdapter;
@@ -30,7 +31,8 @@ import de.android.ayrathairullin.forgetmenot.model.ModelTask;
 import de.android.ayrathairullin.forgetmenot.utils.PreferenceHelper;
 
 public class MainActivity extends AppCompatActivity implements AddingTaskDialogFragment.AddingTaskListener,
-        CurrentTaskFragment.OnTaskDoneListener, DoneTaskFragment.OnTaskRestoreListener{
+        CurrentTaskFragment.OnTaskDoneListener, DoneTaskFragment.OnTaskRestoreListener,
+        EditTaskDialogFragment.EditingTaskListener{
     private ActivityMainBinding binding;
     private FragmentManager fragmentManager;
     private PreferenceHelper preferenceHelper;
@@ -175,5 +177,11 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
     @Override
     public void onTaskRestore(ModelTask task) {
         currentTaskFragment.addTask(task, false);
+    }
+
+    @Override
+    public void onTaskEdited(ModelTask updatedTask) {
+        currentTaskFragment.updateTask(updatedTask);
+        dbHelper.update().task(updatedTask);
     }
 }
