@@ -30,4 +30,6 @@
     <string name="high_priority">Высокий приоритет</string>
 
     <string name="reminder">Напоминание</string>
+    <string name="rate_app">Оценить приложение</string>
+    <string name="not_open_playstore">Не найдено приложение Google Play</string>
 </resources>

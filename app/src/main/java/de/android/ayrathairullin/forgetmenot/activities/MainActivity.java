@@ -3,7 +3,10 @@ package de.android.ayrathairullin.forgetmenot.activities;
 import android.annotation.SuppressLint;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
@@ -92,6 +95,19 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
             case R.id.action_splash:
                 item.setChecked(!item.isChecked());
                 preferenceHelper.putBoolean(PreferenceHelper.SPLASH_IS_INVISIBLE, item.isChecked());
+                return true;
+            case R.id.rate:
+                Uri uri = Uri.parse("market://details?id="
+                        + MainActivity.this.getPackageName());
+                Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+                try {
+                    startActivity(goToMarket);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(MainActivity.this,
+                            R.string.not_open_playstore,
+                            Toast.LENGTH_SHORT).show();
+                    return true;
+                }
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

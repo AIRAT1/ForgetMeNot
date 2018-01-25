@@ -30,4 +30,6 @@
     <string name="high_priority">Hohe Priorität</string>
 
     <string name="reminder">Erinnerung</string>
+    <string name="rate_app">App bewerten</string>
+    <string name="not_open_playstore">Keine Google Play App gefunden</string>
 </resources>
