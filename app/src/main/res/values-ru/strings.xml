@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Незабудка</string>
+
+    <string name="do_not_show_splash">Не показывать заставку</string>
+    <string name="forget_me_not_flower_picture">Картинка цветка незабудки</string>
+
+    <string name="current_task">Активные</string>
+    <string name="done_task">Завершённые</string>
+
+    <string name="task_title">Заголовок</string>
+    <string name="task_date">Дата</string>
+    <string name="task_time">Время</string>
+
+    <string name="dialog_editing_title">Редактировать задачу</string>
+    <string name="dialog_title">Добавить задачу</string>
+    <string name="dialog_ok">Да</string>
+    <string name="dialog_cancel">Отмена</string>
+    <string name="dialog_error_empty_title">Пожалуйста, введите заголовок.</string>
+    <string name="dialog_removing_message">Вы точно хотите удалить эту задачу?</string>
+    <string name="removed">Удалено</string>
+
+    <string name="separator_overdue">Прошедшее</string>
+    <string name="separator_today">Сегодня</string>
+    <string name="separator_tomorrow">Завтра</string>
+    <string name="separator_future">Будущее</string>
+
+    <string name="low_priority">Низкий приоритет</string>
+    <string name="normal_priority">Нормальный приоритет</string>
+    <string name="high_priority">Высокий приоритет</string>
+
+    <string name="reminder">Напоминание</string>
+</resources>

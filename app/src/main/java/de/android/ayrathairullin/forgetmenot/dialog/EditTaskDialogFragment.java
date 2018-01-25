@@ -97,7 +97,11 @@ public class EditTaskDialogFragment extends DialogFragment{
         builder.setView(container);
 
         ArrayAdapter<String> priorityAdapter = new ArrayAdapter<>(
-                getActivity(), android.R.layout.simple_spinner_dropdown_item, ModelTask.PRIORITY_LEVELS);
+                getActivity(), android.R.layout.simple_spinner_dropdown_item, new String[]{
+                getResources().getString(R.string.low_priority),
+                getResources().getString(R.string.normal_priority),
+                getResources().getString(R.string.high_priority)
+        });
         spPriority.setAdapter(priorityAdapter);
         spPriority.setSelection(task.getPriority());
         spPriority.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

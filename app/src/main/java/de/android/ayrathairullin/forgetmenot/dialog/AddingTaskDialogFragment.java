@@ -27,11 +27,11 @@ import de.android.ayrathairullin.forgetmenot.model.ModelTask;
 import de.android.ayrathairullin.forgetmenot.utils.Utils;
 
 public class AddingTaskDialogFragment extends DialogFragment {
-
     private AddingTaskListener addingTaskListener;
 
     public interface AddingTaskListener {
         void onTaskAdded(ModelTask newTask);
+
         void onTaskAddingCancel();
     }
 
@@ -75,7 +75,11 @@ public class AddingTaskDialogFragment extends DialogFragment {
 
         Spinner spPriority = container.findViewById(R.id.spDialogTaskPriority);
         ArrayAdapter<String> priorityAdapter = new ArrayAdapter<>(
-                getActivity(), android.R.layout.simple_spinner_dropdown_item, ModelTask.PRIORITY_LEVELS);
+                getActivity(), android.R.layout.simple_spinner_dropdown_item, new String[]{
+                getResources().getString(R.string.low_priority),
+                getResources().getString(R.string.normal_priority),
+                getResources().getString(R.string.high_priority)
+        });
         spPriority.setAdapter(priorityAdapter);
         spPriority.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -170,7 +174,7 @@ public class AddingTaskDialogFragment extends DialogFragment {
             @Override
             public void onShow(DialogInterface dialog) {
                 final Button positiveButton = ((AlertDialog) dialog).getButton(DialogInterface.BUTTON_POSITIVE);
-                if(etTitle.length() == 0) {
+                if (etTitle.length() == 0) {
                     positiveButton.setEnabled(false);
                     tilTitle.setError(getResources().getString(R.string.dialog_error_empty_title));
                 }

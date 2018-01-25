@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">ForgetMeNot</string>
+
     <string name="do_not_show_splash">Don\'t show splash</string>
     <string name="forget_me_not_flower_picture">Forget-me-not flower picture</string>
 
@@ -22,6 +23,12 @@
     <string name="separator_today">Today</string>
     <string name="separator_tomorrow">Tomorrow</string>
     <string name="separator_future">Future</string>
+
+    <string name="low_priority">Low Priority</string>
+    <string name="normal_priority">Normal Priority</string>
+    <string name="high_priority">High Priority</string>
+
+    <string name="reminder">Reminder</string>
 
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-6708703349449969/6849842407</string>
 

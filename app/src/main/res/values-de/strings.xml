@@ -1,4 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Vergissmeinnicht</string>
+
+    <string name="do_not_show_splash">Splash-Bildschirm nicht anzeigen</string>
+    <string name="forget_me_not_flower_picture">Bild einer Vergissmeinnichtblume</string>
+
+    <string name="current_task">Aktiv</string>
+    <string name="done_task">Abgeschlossen</string>
+
+    <string name="task_title">Titel</string>
+    <string name="task_date">Datum</string>
+    <string name="task_time">Zeit</string>
+
+    <string name="dialog_editing_title">Aufgabe bearbeiten</string>
+    <string name="dialog_title">Aufgabe hinzufügen</string>
+    <string name="dialog_ok">Ja</string>
+    <string name="dialog_cancel">Abbrechen</string>
+    <string name="dialog_error_empty_title">Bitte geben Sie einen Titel ein.</string>
+    <string name="dialog_removing_message">Möchten Sie diese Aufgabe wirklich löschen?</string>
+    <string name="removed">Entfernt</string>
+
+    <string name="separator_overdue">Vergangenheit</string>
+    <string name="separator_today">Heute</string>
+    <string name="separator_tomorrow">Morgen</string>
+    <string name="separator_future">Zukunft</string>
+
+    <string name="low_priority">Geringe Priorität</string>
+    <string name="normal_priority">Normale Priorität</string>
+    <string name="high_priority">Hohe Priorität</string>
+
+    <string name="reminder">Erinnerung</string>
 </resources>
