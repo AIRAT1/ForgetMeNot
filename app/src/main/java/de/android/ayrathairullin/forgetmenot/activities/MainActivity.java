@@ -97,8 +97,10 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
                 preferenceHelper.putBoolean(PreferenceHelper.SPLASH_IS_INVISIBLE, item.isChecked());
                 return true;
             case R.id.rate:
+//                https://play.google.com/store/apps/details?id=de.android.ayrathairullin.forgetmenot
                 Uri uri = Uri.parse("market://details?id="
                         + MainActivity.this.getPackageName());
+//                Uri uri = Uri.parse("https://play.google.com/store/apps/details?id=de.android.ayrathairullin.forgetmenot");
                 Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
                 try {
                     startActivity(goToMarket);
@@ -191,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
 
     @Override
     public void onTaskAddingCancel() {
-        Toast.makeText(this, "Task adding cancel", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getResources().getString(R.string.task_adding_cancel), Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ForgetMeNot</string>
 
@@ -31,7 +32,7 @@
     <string name="reminder">Reminder</string>
     <string name="rate_app">Rate app</string>
     <string name="not_open_playstore">No found Google Play app</string>
+    <string name="task_adding_cancel">Task adding cancel</string>
 
     <string name="banner_ad_unit_id" translatable="false">ca-app-pub-6708703349449969/6849842407</string>
-
 </resources>

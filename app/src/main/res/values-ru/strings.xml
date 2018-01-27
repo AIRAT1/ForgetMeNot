@@ -32,4 +32,5 @@
     <string name="reminder">Напоминание</string>
     <string name="rate_app">Оценить приложение</string>
     <string name="not_open_playstore">Не найдено приложение Google Play</string>
+    <string name="task_adding_cancel">Добавление задачи отменено</string>
 </resources>
