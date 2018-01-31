@@ -172,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
             public boolean onQueryTextChange(String newText) {
                 currentTaskFragment.findTasks(newText);
                 doneTaskFragment.findTasks(newText);
-                return false;
+                return true;
             }
         });
 
