@@ -15,7 +15,10 @@ public class Ads {
     public static void showBanner(final Activity activity) {
 
         final AdView banner = activity.findViewById(R.id.banner);
-        AdRequest adRequest = new AdRequest.Builder().build();
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice(activity.getString(R.string.test_device_id))
+                .build();
         banner.loadAd(adRequest);
 
         banner.setAdListener(new AdListener() {
